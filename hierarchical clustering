@@ -1,0 +1,16 @@
+from sklearn.cluster import AgglomerativeClustering
+from scipy.cluster.hierarchy import dendrogram,linkage
+import numpy as np
+import matplotlib.pyplot as plt
+np.random.seed(0)
+x=np.random.randn(100,2)
+linkage_matrix=linkage(x,method='complete')
+clustering=AgglomerativeClustering(n_clusters=3)
+clustering.fit(x)
+plt.figure(figsize=(10,5))
+dendrogram(linkage_matrix)
+plt.title('Hierarchical clustering dendrogram')
+plt.show()
+plt.scatter(x[:0].x[:1],c=clustering.labels_,cmap='viridis',alpha=0.5,edgecolor='k')
+plt.title('Hierarchical clustering')
+plt.show()
